@@ -9,7 +9,7 @@ app = Flask(__name__)
 split_size = 1024 * 1024 
 
 #Hash Fonksiyonu
-def hash_chunk(input):
+def hash_part(input):
     return {
         "md5": hashlib.md5(input).hexdigest(),
         "sha256": hashlib.sha256(input).hexdigest(),
@@ -26,19 +26,19 @@ def upload():
     content = uploaded_file.read()
     
     #Full File Hash
-    full_file_hash = hash_chunk(content)
+    full_file_hash = hash_part(content)
 
     #Split File Hash
-    chunks = []
+    parts = []
     for i in range(0, len(content), split_size):
-        chunk_data = content[i:i+split_size]
-        chunk_hashes = hash_chunk(chunk_data)
-        chunk_hashes["chunk_number"] = i // split_size + 1
-        chunks.append(chunk_hashes)
+        part_data = content[i:i+split_size]
+        part_hashes = hash_part(part_data)
+        part_hashes["part_number"] = i // split_size + 1
+        parts.append(part_hashes)
     
     result = {
         "full_file_hash": full_file_hash,
-        "chunks": chunks
+        "parts": parts
     }
 
     #Split File Hash
@@ -54,22 +54,22 @@ def upload():
         f"SHA256={full_hash['sha256']}\n"
         f"SHA512={full_hash['sha512']}\n"
     )
-    chunk_texts = []
-    for chunk in result["chunks"]:
+    part_texts = []
+    for part in result["parts"]:
         line = (
-            f"Chunk {chunk['chunk_number']}: "
-            f"MD5={chunk['md5']}, "
-            f"SHA256={chunk['sha256']}, "
-            f"SHA512={chunk['sha512']}"
+            f"Split File Hashes:\n"
+            f"Part {part['part_number']}:\n"
+            f"MD5={part['md5']}\n"
+            f"SHA256={part['sha256']}\n"
+            f"SHA512={part['sha512']}\n"
         )
-        chunk_texts.append(line)
-        chunk_texts.append('\n')
+        part_texts.append(line)
 
-    
+    final_output = full_text + "\n".join(part_texts)
+
     return render_template(
     "index.html", 
-    text_output_full=full_text,
-    text_output_split=chunk_texts)
+    final_output=final_output)
 
     if not uploaded_file:
         return "No file uploaded", 400

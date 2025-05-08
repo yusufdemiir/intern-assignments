@@ -15,17 +15,9 @@
             <h2>Please choose a file:</h2>
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" required>
-                <button type="submit">Yükle</button>
+                <button type="submit">Calculate!</button>
             </form>
-            <div>
-                <p>Full File Hash:</p>
-                <pre>{{ text_output_full }}</pre>
-            </div>
-            <div>
-                <p>Split File Hashes:</p>
-                <pre>{{ text_output_split }}</pre>
-            </div>
-            
+            <pre>{{ final_output }}</pre>
     </div>
 </body>
 </html>
