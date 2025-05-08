@@ -52,7 +52,7 @@ def upload():
         f"Full File Hashes:\n"
         f"MD5={full_hash['md5']}\n"
         f"SHA256={full_hash['sha256']}\n"
-        f"SHA512={full_hash['sha512']}\n"
+        f"SHA512={full_hash['sha512']}\n\n"
     )
     part_texts = []
     for part in result["parts"]:

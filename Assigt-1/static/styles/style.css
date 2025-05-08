@@ -16,7 +16,8 @@ body {
 }
 h1 {
     color: #BACDD9;
-    padding: 0;
+    padding-left: 6px;
+    padding-right: 6px;
     font-family: "Lato", sans-serif;
 
 }
@@ -36,4 +37,14 @@ form {
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+button {
+    margin: 5px;
+    margin-top: 15px;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: 1%;
+    border-radius: 10px;
+    font-family: "Lato", sans-serif;
+    cursor:pointer;
 }
