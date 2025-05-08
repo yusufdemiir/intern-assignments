@@ -1,0 +1,41 @@
+body {
+    background-color: #425944;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* yatay */
+    align-items: center;
+}
+.body {
+    background-color: #17311a;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    border-radius: 25px;
+}
+h1 {
+    color: #BACDD9;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+
+}
+h2 {
+    color: #BACDD9;
+    font-family: "Lato", sans-serif;
+}
+pre {
+    color: #BACDD9;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+}
+p {
+    color: #BACDD9;
+    font-family: "Lato", sans-serif;
+}
+form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
