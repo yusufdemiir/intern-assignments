@@ -8,9 +8,17 @@
 </head>
 <body>
     <div class="body">
-        <h1>Welcome to the Hash Calculator</h1>
-        <h2>Please choose a file:</h2>
-        
+        <div class="input">
+            <h1>Welcome to the Hash Calculator</h1>
+            <h2>Please choose a file:</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button type="submit">Yükle</button>
+            </form>
+        </div>
+        <div class="results">
+            <p>{{ json_output }}</p>
+        </div>
     </div>
 </body>
 </html>
