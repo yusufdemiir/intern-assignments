@@ -16,10 +16,12 @@ def hash_part(input):
         "sha512": hashlib.sha512(input).hexdigest()
     }
 
+#Ana Sayfa
 @app.route('/')
 def home():
     return render_template("index.html")
 
+#Dosya Yüklenmesi
 @app.route("/upload", methods=["POST"])
 def upload():
     uploaded_file = request.files.get("file")
@@ -36,12 +38,11 @@ def upload():
         part_hashes["part_number"] = i // split_size + 1
         parts.append(part_hashes)
     
+    #Sonuçlar
     result = {
         "full_file_hash": full_file_hash,
         "parts": parts
     }
-
-    #Split File Hash
     
     #JSON Çıktısı Yazma
     with open("output.json", "w") as f:

@@ -1,0 +1,90 @@
+body {
+    background-color: #425944;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* yatay */
+    align-items: center;
+}
+.body {
+    background-color: #17311a;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 8%;
+    margin-top: 100px;
+    align-self: center;
+    border-radius: 25px;
+}
+h1 {
+    color: #BACDD9;
+    font-family: "Lato", sans-serif;
+
+}
+h2 {
+    color: #BACDD9;
+    font-family: "Lato", sans-serif;
+}
+pre {
+    color: #BACDD9;
+    font-family: "Lato", sans-serif;
+}
+p {
+    color: #BACDD9;
+    font-family: "Lato", sans-serif;
+}
+button {
+    margin: 5px;
+    margin-top: 15px;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: 1%;
+    border-radius: 10px;
+    font-family: "Lato", sans-serif;
+    cursor:pointer;
+}
+label {
+    font-family: "Lato", sans-serif;
+    color: #BACDD9;
+    margin-bottom: 5px;
+}
+textarea {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+input {
+    margin-bottom: 5px;
+}
+.content {
+    display: flex;
+}
+.encrypt {
+    background-color: #244c29;
+    border-radius: 10%;
+    margin-right: 5%;
+}
+.decrypt {
+    background-color: #244c29;
+    border-radius: 10%;
+    margin-left: 5%;
+}
+#file {
+    align-self: center;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.button {
+    margin-bottom: 10px;
+}
+.input {
+    display: contents;
+}
+.alert-info {
+    background-color: #e7f3fe;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-family: sans-serif;
+  }
