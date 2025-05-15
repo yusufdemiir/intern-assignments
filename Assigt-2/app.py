@@ -67,13 +67,18 @@ def encrypt():
 @app.route("/decrypt", methods=["POST"])
 def decrypt():
     
+    #Dosyanın çekilmesi ve pathlerin ayarlanması
     password = request.form['passphrase']
     selected_file = request.files.get("file")
     filename = secure_filename(selected_file.filename)
     temp_path = os.path.join("files/temp-decrypt", filename)
     selected_file.save(temp_path)
+
+    #Decrypt işlemi
     with open(temp_path, "rb") as f:
         decrypted_data = gpg.decrypt_file(f, passphrase=password)
+    
+    #Yazma işlemi
     original_filename = Path(filename).stem
     output_dir = "files/decrypted-files"
     output_path = os.path.join(output_dir, original_filename)
