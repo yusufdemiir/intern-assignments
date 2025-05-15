@@ -27,18 +27,19 @@
         </div>
         <div class="content">
             <div class="encrypt">
-                <h2>Encrypt File</h2>
-                <label for="publicKeySelect">Select Public Key: </label><br><br>
-                <select name="gpg_key" id="gpg_key">
-                    {% for keyid, uid in keys %}
-                      <option value="{{ keyid }}">{{ uid }} ({{ keyid }})</option>
-                    {% endfor %}
-                </select>
-                <p></p>
+                
                 <form action="/encrypt" method="POST" enctype="multipart/form-data">
-                <label for="file">File:</label><br><br>
-                <input id="file" type="file" name="file" required><br><br>
-                <input class="button" type="submit" value="Encrypt">
+                    <h2>Encrypt File</h2>
+                    <label for="publicKeySelect">Select Public Key: </label><br><br>
+                    <select name="gpg_key" id="gpg_key">
+                        {% for keyid, uid in keys %}
+                          <option value="{{ keyid }}">{{ uid }} ({{ keyid }})</option>
+                        {% endfor %}
+                    </select>
+                    <p></p>
+                    <label for="file">File:</label><br><br>
+                    <input id="file" type="file" name="file" required><br><br>
+                    <input class="button" type="submit" value="Encrypt">
                 </form>
             </div>
             <div class="decrypt">
@@ -47,7 +48,7 @@
                 <label for="file">File:</label><br><br>
                 <input type="file" name="file" required><br><br>
                 <label for="passphrase">Passphrase:</label>
-                <textarea type="password" name="passphrase" rows="4" cols="30" required></textarea><br><br>
+                <textarea id="passphrase" type="password" name="passphrase" rows="4" cols="30" required></textarea><br><br>
                 <input class="button" type="submit" value="Decrypt">
                 </form>
             </div>
