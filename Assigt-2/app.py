@@ -77,8 +77,8 @@ def decrypt():
     original_filename = Path(filename).stem
     output_dir = "files/decrypted-files"
     output_path = os.path.join(output_dir, original_filename)
-    with open(output_path, "w", encoding="utf-8") as out_file:
-        status = out_file.write(str(decrypted_data.data, encoding="utf-8"))
+    with open(output_path, "wb") as out_file:
+        out_file.write(decrypted_data.data)
     
     public_keys = gpg.list_keys()
     key_list = [(key['keyid'], key['uids'][0]) for key in public_keys]
