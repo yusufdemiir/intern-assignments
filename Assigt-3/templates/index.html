@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+    <title>Assigt-3</title>
+</head>
+<body>
+    <div class="body">
+        <h1>Assigt-3</h1>
+        <h2>Please choose files:</h2>
+        <h3>(docx, xls, pdf, txt)</h3>
+        <form action="start" method="post" enctype="multipart/form-data">
+            <input id="files" type="file" name="files" required multiple><br><br>
+            <input class="button" type="submit" value="Start">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dosya Adı</th>
+                    <th>Dosya Türü</th>
+                    <th>Yazar</th>
+                    <th>Oluşturma Tarihi</th>
+                    <th>Sahibi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in data %}
+                <tr>
+                    <td>{{ file.filename }}</td>
+                    <td>{{ file.type }}</td>
+                    <td>{{ file.author }}</td>
+                    <td>{{ file.created }}</td>
+                    <td>{{ file.producer }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2>Search: </h2>
+        <form action="search" method="post" enctype="multipart/form-data">
+            <label for="search">Arama kelimesi:</label>
+            <input id="files" type="file" name="files" required multiple><br><br>
+            <input type="text" id="query" name="query"><br><br>
+            <select name="search_type">
+                <option value="contains">İçeren</option>
+                <option value="startswith">Başlayan</option>
+                <option value="endswith">Biten</option>
+            </select>
+            <input type="submit" value="Ara">
+        </form>
+    </div>
+</body>
+</html>

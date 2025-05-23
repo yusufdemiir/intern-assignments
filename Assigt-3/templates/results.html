@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+    <title>Results</title>
+</head>
+<body>
+    <h3>"{{ query }}" kelimesi için arama ({{ search_type }})</h3>
+{% for item in results %}
+  <h4>{{ item.filename }}</h4>
+  <ul>
+    {% for line in item.matches %}
+      <li>{{ line }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Sonuç bulunamadı.</p>
+{% endfor %}
+</body>
+</html>
