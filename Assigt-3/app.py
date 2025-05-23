@@ -24,7 +24,7 @@ def get_metadata(file, filename):
             metadata["created"] = f"Format hatası: {creation_date}"
 
         metadata["filename"] = filename
-        metadata["type"] = ext
+        metadata["type"] = 'Pdf'
         metadata["author"] = doc_info.author
         metadata["producer"] = doc_info.producer
 
@@ -32,7 +32,7 @@ def get_metadata(file, filename):
         doc = docx.Document(file)
         core_props = doc.core_properties
         metadata["filename"] = filename
-        metadata["type"] = ext
+        metadata["type"] = 'Docx'
         metadata["author"] = core_props.author
         metadata["created"] = str(core_props.created)
         metadata["producer"] = core_props.last_modified_by
@@ -45,10 +45,10 @@ def get_metadata(file, filename):
 
         stats = os.stat(temp_path)
         metadata["filename"] = filename
-        metadata["type"] = ext
-        metadata["author"] = " "
+        metadata["type"] = 'Txt'
+        metadata["author"] = "None"
         metadata["created"] = datetime.fromtimestamp(stats.st_ctime)
-        metadata["producer"] = " "
+        metadata["producer"] = "None"
         os.remove(temp_path)
 
 
@@ -59,7 +59,7 @@ def get_metadata(file, filename):
         wb = load_workbook(temp_path)
         props = wb.properties
         metadata["filename"] = filename
-        metadata["type"] = ext
+        metadata["type"] = 'Xlsx'
         metadata["author"] = props.creator
         metadata["created"] = datetime.fromtimestamp(os.path.getctime(temp_path))
         metadata["producer"] = props.lastModifiedBy
